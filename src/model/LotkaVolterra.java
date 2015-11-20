@@ -1,6 +1,6 @@
 package model;
 
-public class SimpleLotkaVolterra {
+public class LotkaVolterra {
   private double preysCount;
   private double predatorsCount;
 
@@ -8,9 +8,10 @@ public class SimpleLotkaVolterra {
   private double predationSpeed;
   private double predatorsGrowth;
   private double predatorsDeath;
+  private int seconds;
 
-  public SimpleLotkaVolterra(int preysCount, int predatorsCount, double preysGrowth,
-                             double predationSpeed, double predatorsGrowth, double predatorsDeath) {
+  public LotkaVolterra(int preysCount, int predatorsCount, double preysGrowth,
+                       double predationSpeed, double predatorsGrowth, double predatorsDeath) {
     this.preysCount = preysCount;
     this.predatorsCount = predatorsCount;
 
@@ -18,15 +19,15 @@ public class SimpleLotkaVolterra {
     this.predationSpeed = predationSpeed;
     this.predatorsGrowth = predatorsGrowth;
     this.predatorsDeath = predatorsDeath;
+    this.seconds = 0;
   }
 
   public void update() {
+    seconds++;
     double h = 0.1;
-    System.out.println("Update");
-    // Euler's ODE method
     preysCount = preysCount + h * preysCount * (preysGrowth - predationSpeed * predatorsCount);
     predatorsCount = predatorsCount + h * predatorsCount * (predatorsGrowth * preysCount - predatorsDeath);
-    System.out.println("Preys: "+preysCount+"--"+"Predators: "+predatorsCount);
+    System.out.println("Preys: "+preysCount+"--"+"Predators: "+predatorsCount+"---"+seconds);
   }
 
   public double getPreysCount() {

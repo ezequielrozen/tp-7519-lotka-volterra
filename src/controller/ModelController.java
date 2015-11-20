@@ -1,16 +1,16 @@
 package controller;
 
-import model.SimpleLotkaVolterra;
+import model.LotkaVolterra;
 import view.MainWindow;
 
 import java.util.TimerTask;
 
 public class ModelController extends TimerTask {
 
-  private SimpleLotkaVolterra model;
+  private LotkaVolterra model;
   private MainWindow window;
 
-  public ModelController(SimpleLotkaVolterra model, MainWindow window) {
+  public ModelController(LotkaVolterra model, MainWindow window) {
     this.model = model;
     this.window = window;
     this.window.setPreyCount(this.getPreyCount());
@@ -23,7 +23,7 @@ public class ModelController extends TimerTask {
     this.window.update(this.getPreyCount(), this.getPredatorCount());
   }
 
-  SimpleLotkaVolterra getModel() {
+  LotkaVolterra getModel() {
     return this.model;
   }
 
