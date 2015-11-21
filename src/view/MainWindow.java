@@ -9,7 +9,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.IOException;
 
-public class MainWindow extends JFrame implements WindowListener {
+public class MainWindow extends JFrame {
 
 
   JPanel counterPanel = new JPanel();
@@ -100,46 +100,5 @@ public class MainWindow extends JFrame implements WindowListener {
 
   public void setWriter(CSVWriter writer) {
     this.writer = writer;
-  }
-
-  @Override
-  public void windowOpened(WindowEvent windowEvent) {
-
-  }
-
-  @Override
-  public void windowClosing(WindowEvent windowEvent) {
-    try {
-      this.writer.close();
-    } catch (IOException e) {
-      System.exit(-1);
-      e.printStackTrace();
-    }
-    System.exit(0);
-  }
-
-  @Override
-  public void windowClosed(WindowEvent windowEvent) {
-
-  }
-
-  @Override
-  public void windowIconified(WindowEvent windowEvent) {
-
-  }
-
-  @Override
-  public void windowDeiconified(WindowEvent windowEvent) {
-
-  }
-
-  @Override
-  public void windowActivated(WindowEvent windowEvent) {
-
-  }
-
-  @Override
-  public void windowDeactivated(WindowEvent windowEvent) {
-
   }
 }
